@@ -7,4 +7,7 @@ ThemeData lightMode = ThemeData(
     secondary: Colors.grey.shade200,
     inversePrimary: Colors.grey.shade900,
   ),
+  appBarTheme: AppBarTheme(
+    backgroundColor: Colors.grey.shade400,
+  ),
 );

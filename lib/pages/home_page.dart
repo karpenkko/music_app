@@ -26,10 +26,10 @@ class _HomePageState extends State<HomePage> {
     playlistProvider.currentSongIndex = songIndex;
 
     Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => SongPage(),
-        ),
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SongPage(),
+      ),
     );
   }
 
@@ -37,25 +37,28 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: const MyAppBar(title: 'H O M E'),
+      appBar: const MyAppBar(title: 'Home'),
       drawer: const MyDrawer(),
-      body: Consumer<PlayListProvider>(builder: (context, value, child) {
-        final List<Song> playlist = value.playlist;
+      body: Padding(
+        padding: const EdgeInsets.only(top: 10.0),
+        child: Consumer<PlayListProvider>(builder: (context, value, child) {
+          final List<Song> playlist = value.playlist;
 
-        return ListView.builder(
-          itemCount: playlist.length,
-          itemBuilder: (context, index) {
-            final Song song = playlist[index];
+          return ListView.builder(
+            itemCount: playlist.length,
+            itemBuilder: (context, index) {
+              final Song song = playlist[index];
 
-            return ListTile(
-              title: Text(song.songName),
-              subtitle: Text(song.artistName),
-              leading: Image.asset(song.imagePath),
-              onTap: () => goToSong(index),
-            );
-          },
-        );
-      }),
+              return ListTile(
+                title: Text(song.songName),
+                subtitle: Text(song.artistName),
+                leading: Image.asset(song.imagePath),
+                onTap: () => goToSong(index),
+              );
+            },
+          );
+        }),
+      ),
     );
   }
 }

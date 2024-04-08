@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/themes/theme_provider.dart';
 import 'package:music_app/widgets/app_bar.dart';
-import 'package:music_app/widgets/drawer.dart';
 import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -10,7 +9,7 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: const MyAppBar(title: 'S E T T I N G S'),
+      appBar: const MyAppBar(title: 'Settings'),
       body: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.secondary,
@@ -23,7 +22,10 @@ class SettingsPage extends StatelessWidget {
           children: [
             const Text(
               'Dark Mode',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
             ),
             Switch(
               value:

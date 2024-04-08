@@ -3,23 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:music_app/models/song.dart';
 
-class PlayListProvider extends ChangeNotifier{
+class PlayListProvider extends ChangeNotifier {
   final List<Song> _playlist = [
-
     Song(
       songName: 'Popular',
       artistName: 'The Weeknd, Madonna',
       imagePath: 'assets/images/popular.jpg',
       audioPath: 'audio/Popular.mp3',
     ),
-
     Song(
       songName: 'Too Sweat',
       artistName: 'Hozier',
       imagePath: 'assets/images/too_sweet.png',
       audioPath: 'audio/Too_Sweet.mp3',
     ),
-
     Song(
       songName: 'I Don’t Wanna Fall in Love',
       artistName: 'She Wants Revenge',
@@ -62,7 +59,7 @@ class PlayListProvider extends ChangeNotifier{
   }
 
   void pauseOrResume() {
-    if(_isPlaying){
+    if (_isPlaying) {
       pause();
     } else {
       resume();
@@ -74,30 +71,29 @@ class PlayListProvider extends ChangeNotifier{
     await _audioPlayer.seek(position);
   }
 
-  void playNextSong(){
-    if(_currentSongIndex != null) {
-      if(_currentSongIndex! < _playlist.length - 1) {
+  void playNextSong() {
+    if (_currentSongIndex != null) {
+      if (_currentSongIndex! < _playlist.length - 1) {
         currentSongIndex = _currentSongIndex! + 1;
-      } else{
+      } else {
         currentSongIndex = 0;
       }
     }
   }
 
   void playPreviousSong() async {
-    if(_currentDuration.inSeconds > 2) {
+    if (_currentDuration.inSeconds > 2) {
       seek(Duration.zero);
-    }
-    else {
-      if(_currentSongIndex! > 0) {
+    } else {
+      if (_currentSongIndex! > 0) {
         currentSongIndex = _currentSongIndex! - 1;
-      } else{
+      } else {
         currentSongIndex = _playlist.length - 1;
       }
     }
   }
 
-  void listenDuration(){
+  void listenDuration() {
     _audioPlayer.onDurationChanged.listen((newDuration) {
       _totalDuration = newDuration;
       notifyListeners();
@@ -112,7 +108,6 @@ class PlayListProvider extends ChangeNotifier{
       playNextSong();
     });
   }
-
 
   List<Song> get playlist => _playlist;
   int? get currentSongIndex => _currentSongIndex;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
 
   const MyAppBar({
@@ -11,17 +11,10 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      // backgroundColor: Theme.of(context).colorScheme.primary,
       title: Text(
         title,
-        // style: TextStyle(
-        //   color: Theme.of(context).colorScheme.secondary,
-        // ),
       ),
       centerTitle: true,
-      // iconTheme: IconThemeData(
-      //   color: Theme.of(context).colorScheme.secondary,
-      // ),
     );
   }
 
