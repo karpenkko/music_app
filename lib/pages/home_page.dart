@@ -45,6 +45,7 @@ class _HomePageState extends State<HomePage> {
           final List<Song> playlist = value.playlist;
 
           return ListView.builder(
+            physics: const BouncingScrollPhysics(),
             itemCount: playlist.length,
             itemBuilder: (context, index) {
               final Song song = playlist[index];

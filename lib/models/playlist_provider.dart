@@ -18,6 +18,18 @@ class PlayListProvider extends ChangeNotifier {
       audioPath: 'audio/Too_Sweet.mp3',
     ),
     Song(
+      songName: 'Poison',
+      artistName: 'Bell Biv DeVoe',
+      imagePath: 'assets/images/poison.jpg',
+      audioPath: 'audio/Poison.mp3',
+    ),
+    Song(
+      songName: 'Dark Red',
+      artistName: 'Steve Lacy',
+      imagePath: 'assets/images/dark_red.jpg',
+      audioPath: 'audio/Dark_Red.mp3',
+    ),
+    Song(
       songName: 'I Don’t Wanna Fall in Love',
       artistName: 'She Wants Revenge',
       imagePath: 'assets/images/dont_want.jpg',

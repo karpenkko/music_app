@@ -12,7 +12,7 @@ class CoverBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return                   NeuBox(
+    return NeuBox(
       child: Column(
         children: [
           ClipRRect(
